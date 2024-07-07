@@ -180,7 +180,7 @@
     </div>
     </div>
 </div>
-<audio id="myAudio" loop>
+<audio id="myAudio" autoplay loop>
     <source src="song.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
@@ -188,7 +188,9 @@
 <script>
     window.addEventListener("load", function() {
         var audio = document.getElementById("myAudio");
-        audio.play();
+        audio.play().catch(function(error) {
+            console.log("Playback failed: ", error);
+        });
     });
 </script>
 
